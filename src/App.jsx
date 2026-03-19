@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
 
 const MOTIVATIONAL_QUOTES = [
-  "誘몃옒�� �꾩옱 �곕━媛� 臾댁뾿�� �섎뒗媛��� �щ젮 �덉뒿�덈떎.",
-  "媛��� �� �곴킅�� �ㅽ뙣�섏� �딆쓬�� �꾨땲�� �ㅽ뙣�� �뚮쭏�� �ㅼ떆 �쇱뼱�섎뒗 �� �덉뒿�덈떎.",
-  "�깃났�� 理쒖쥌�곸씤 寃껋씠 �꾨땲硫�, �ㅽ뙣�� 移섎챸�곸씤 寃껋씠 �꾨떃�덈떎. 以묒슂�� 寃껋� 怨꾩냽�섎젮�� �⑷린�낅땲��.",
-  "�뱀떊�� �쒓컙�� ��퉬�섏� 留덉꽭��. 洹멸쾬�� �몄깮�� 援ъ꽦�섎뒗 �щ즺�낅땲��.",
-  "�ㅻ뒛�� 紐곗엯�� �뱀떊�� 轅덉쓣 �꾩떎濡� 留뚮뱶�� �좎씪�� 湲몄엯�덈떎.",
-  "�꾨꼍�섎젮怨� �섏� 留덉꽭��. �댁젣蹂대떎 議곌툑 �� �섏븘吏��ㅺ퀬 �몃젰�섏꽭��.",
-  "�묒� �쇰��� �쒖옉�섏꽭��. 洹� �묒� �쇰뱾�� 紐⑥뿬 �꾨��� 寃곌낵瑜� 留뚮벊�덈떎.",
-  "吏묒쨷�� �섎갚 媛쒖쓽 醫뗭� �꾩씠�붿뼱�� '�꾨땲��'�쇨퀬 留먰븯�� 寃껋엯�덈떎.",
-  "湲곕떎由ъ� 留덉꽭��. �쒓컙�� �덈�濡� '�� 留욌뒗' �뚭� �ㅼ� �딆뒿�덈떎.",
-  "紐곗엯�� �곕━ �띠쓽 吏덉쓣 寃곗젙�섎뒗 媛��� 媛뺣젰�� �댁뇿�낅땲��.",
-  "�ㅻ뒛�� 怨좏넻�� �댁씪�� �섏씠 �⑸땲��.",
-  "�쒓퀎�� �곕━媛� �ㅼ젙�섎뒗 寃껋엯�덈떎. �ㅼ뒪濡쒕� 誘우쑝�몄슂."
+  "미래는 현재 우리가 무엇을 하는가에 달려 있습니다.",
+  "가장 큰 영광은 실패하지 않음이 아니라 실패할 때마다 다시 일어나는 데 있습니다.",
+  "성공은 최종적인 것이 아니며, 실패는 치명적인 것이 아닙니다. 중요한 것은 계속하려는 용기입니다.",
+  "당신의 시간을 낭비하지 마세요. 그것은 인생을 구성하는 재료입니다.",
+  "오늘의 몰입이 당신의 꿈을 현실로 만드는 유일한 길입니다.",
+  "완벽하려고 하지 마세요. 어제보다 조금 더 나아지려고 노력하세요.",
+  "작은 일부터 시작하세요. 그 작은 일들이 모여 위대한 결과를 만듭니다.",
+  "집중은 수백 개의 좋은 아이디어에 '아니오'라고 말하는 것입니다.",
+  "기다리지 마세요. 시간은 절대로 '딱 맞는' 때가 오지 않습니다.",
+  "몰입은 우리 삶의 질을 결정하는 가장 강력한 열쇠입니다.",
+  "오늘의 고통은 내일의 힘이 됩니다.",
+  "한계는 우리가 설정하는 것입니다. 스스로를 믿으세요."
 ]
 
 function App() {
@@ -115,7 +115,7 @@ function App() {
   }
 
   const getWeeklyStats = () => {
-    const days = ['��', '��', '��', '紐�', '湲�', '��', '��']; const today = new Date(); const currentDay = today.getDay(); const diff = today.getDate() - (currentDay === 0 ? 6 : currentDay - 1); const monday = new Date(today.setDate(diff))
+    const days = ['월', '화', '수', '목', '금', '토', '일']; const today = new Date(); const currentDay = today.getDay(); const diff = today.getDate() - (currentDay === 0 ? 6 : currentDay - 1); const monday = new Date(today.setDate(diff))
     return days.map((day, index) => {
       const date = new Date(monday); date.setDate(monday.getDate() + index); const dateStr = date.toISOString().split('T')[0]
       return { label: day, minutes: stats[dateStr] || 0, isToday: dateStr === new Date().toISOString().split('T')[0] }
@@ -125,11 +125,11 @@ function App() {
   const weeklyData = getWeeklyStats(); const maxMinutes = Math.max(...weeklyData.map(d => d.minutes), 60)
 
   const steps = [
-    {n:1, t:"�쒓컙�� 媛�移섎� 源⑥슦�� 由щ벉", d:"紐곗엯怨� �댁떇�� �뺥솗�� 諛섎났�� 吏�移섏� �딅뒗 �댁젙�� �먮룞�μ씠 �⑸땲��.", c: isDarkMode ? "bg-emerald-500/10 text-emerald-400" : "bg-emerald-100 text-emerald-700"}, 
-    {n:2, t:"誘몃옒瑜� 二쇰룄�섎뒗 �쒓컙 議곗젅", d:"�ㅼ뒪濡� �쒓컙�� �듭젣�섎뒗 �λ젰�� �щ윭遺꾩쓽 �댁씪�� 二쇰룄�섎뒗 �섏씠 �⑸땲��.", c: isDarkMode ? "bg-cyan-500/10 text-cyan-400" : "bg-cyan-100 text-cyan-700"}, 
-    {n:3, t:"�섏�瑜� 源⑥슦�� 以묎컙 �뚮엺", d:"�먮Ⅴ�� �쒓컙�� 紐몄쑝濡� �먮겮硫� �먭컖�� ��, 鍮꾨줈�� �댁븘�덈뒗 吏묒쨷�� �쒖옉�⑸땲��.", c: isDarkMode ? "bg-purple-500/10 text-purple-400" : "bg-purple-100 text-purple-700"}, 
-    {n:4, t:"李④끝李④끝 �볦씠�� �깆옣�� 利앷굅", d:"留ㅼ씪 �볦씠�� 湲곕줉�� �뱀떊�� 硫덉텛吏� �딄퀬 �깆옣�섍퀬 �덈떎�� 媛��� �뺤떎�� 利앷굅�낅땲��.", c: isDarkMode ? "bg-amber-500/10 text-amber-400" : "bg-amber-100 text-amber-700"},
-    {n:5, t:"湲곕줉�� 釉뚮씪�곗��� �뚯쨷�� 蹂닿��⑸땲��", d:"蹂꾨룄�� 濡쒓렇�� �놁씠�� 釉뚮씪�곗��� 湲곕줉�� �덉쟾�섍쾶 ���λ맗�덈떎. �덉떖�섍퀬 吏묒쨷�섏꽭��!", c: isDarkMode ? "bg-pink-500/10 text-pink-400" : "bg-pink-100 text-pink-700"}
+    {n:1, t:"시간의 가치를 깨우는 리듬", d:"몰입과 휴식의 정확한 반복은 지치지 않는 열정의 원동력이 됩니다.", c: isDarkMode ? "bg-emerald-500/10 text-emerald-400" : "bg-emerald-100 text-emerald-700"}, 
+    {n:2, t:"미래를 주도하는 시간 조절", d:"스스로 시간을 통제하는 능력은 여러분의 내일을 주도하는 힘이 됩니다.", c: isDarkMode ? "bg-cyan-500/10 text-cyan-400" : "bg-cyan-100 text-cyan-700"}, 
+    {n:3, t:"의지를 깨우는 중간 알람", d:"흐르는 시간을 몸으로 느끼며 자각할 때, 비로소 살아있는 집중이 시작됩니다.", c: isDarkMode ? "bg-purple-500/10 text-purple-400" : "bg-purple-100 text-purple-700"}, 
+    {n:4, t:"차곡차곡 쌓이는 성장의 증거", d:"매일 쌓이는 기록은 당신이 멈추지 않고 성장하고 있다는 가장 확실한 증거입니다.", c: isDarkMode ? "bg-amber-500/10 text-amber-400" : "bg-amber-100 text-amber-700"},
+    {n:5, t:"기록은 브라우저에 소중히 보관됩니다", d:"별도의 로그인 없이도 브라우저에 기록이 안전하게 저장됩니다. 안심하고 집중하세요!", c: isDarkMode ? "bg-pink-500/10 text-pink-400" : "bg-pink-100 text-pink-700"}
   ];
 
   return (
@@ -139,19 +139,19 @@ function App() {
           {isDarkMode ? <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg> : <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>}
         </button>
         <div className={`px-4 py-2 rounded-xl text-sm font-black border tracking-tight ${isDarkMode ? 'bg-slate-800 border-slate-700 text-slate-400' : 'bg-white border-slate-200 text-slate-500 shadow-sm'}`}>
-            <span className="opacity-60">{isDarkMode ? '�뙐 �ㅽ겕' : '��截� �쇱씠��'} 紐⑤뱶濡� 蹂�寃�</span>
+            <span className="opacity-60">{isDarkMode ? '🌕 다크' : '☀️ 라이트'} 모드로 변경</span>
         </div>
       </div>
 
-      <h1 className="text-4xl lg:text-5xl font-black mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500 tracking-tighter leading-tight px-4 w-full max-w-[1400px]">�뱀떊�� �뚯쨷�� 誘몃옒瑜� �꾩꽦�섎뒗 紐곗엯�� �쒓컙 ��</h1>
+      <h1 className="text-4xl lg:text-5xl font-black mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-cyan-500 tracking-tighter leading-tight px-4 w-full max-w-[1400px]">당신의 소중한 미래를 완성하는 몰입의 시간 ⌛</h1>
       
       <div className="max-w-[1536px] w-full grid grid-cols-1 xl:grid-cols-2 gap-16 items-start justify-center">
         <div className="flex flex-col items-center w-full space-y-10">
           <div className={`w-full border rounded-[4rem] p-12 shadow-2xl relative overflow-hidden transition-all ${isDarkMode ? 'bg-slate-900/80 border-slate-800' : 'bg-white border-slate-200'}`}>
             <div className="absolute top-0 left-0 w-full h-2 bg-slate-200/10"><div className={`h-full transition-all duration-1000 ease-linear ${sessionType === 'Focus' ? 'bg-emerald-500 shadow-[0_0_25px_rgba(16,185,129,0.5)]' : 'bg-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.5)]'}`} style={{ width: `${100 - progress}%` }} /></div>
             <div className="flex justify-center space-x-4 mb-14">
-              <button onClick={() => switchSession('Focus')} className={`px-10 py-3 rounded-full text-xl font-black transition-all ${sessionType === 'Focus' ? (isDarkMode ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-emerald-500 text-white shadow-lg') : (isDarkMode ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600')}`}>吏묒쨷 (Focus)</button>
-              <button onClick={() => switchSession('Break')} className={`px-10 py-3 rounded-full text-xl font-black transition-all ${sessionType === 'Break' ? (isDarkMode ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-amber-500 text-white shadow-lg') : (isDarkMode ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600')}`}>�댁떇 (Break)</button>
+              <button onClick={() => switchSession('Focus')} className={`px-10 py-3 rounded-full text-xl font-black transition-all ${sessionType === 'Focus' ? (isDarkMode ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-emerald-500 text-white shadow-lg') : (isDarkMode ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600')}`}>집중 (Focus)</button>
+              <button onClick={() => switchSession('Break')} className={`px-10 py-3 rounded-full text-xl font-black transition-all ${sessionType === 'Break' ? (isDarkMode ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30' : 'bg-amber-500 text-white shadow-lg') : (isDarkMode ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600')}`}>휴식 (Break)</button>
             </div>
             <div className="text-center mb-14"><div className={`text-[10rem] font-black tracking-tighter mb-4 font-mono leading-none drop-shadow-2xl ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>{formatTime(timeLeft)}</div><p className={`text-2xl tracking-[0.5em] uppercase font-black ${sessionType === 'Focus' ? 'text-emerald-500' : 'text-amber-500'}`}>{sessionType === 'Focus' ? 'Deep Work Time' : 'Recharge Time'}</p></div>
             <div className="flex items-center justify-center space-x-8">
@@ -162,10 +162,10 @@ function App() {
           
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
              <div className={`border rounded-[3rem] p-10 flex flex-col items-center justify-center shadow-xl space-y-6 ${isDarkMode ? 'bg-slate-900/60 border-slate-800' : 'bg-white border-slate-200'}`}>
-                <p className="text-xl uppercase tracking-[0.2em] font-black text-slate-500">吏묒쨷 �쒓컙(FOCUS)</p>
+                <p className="text-xl uppercase tracking-[0.2em] font-black text-slate-500">집중 시간(FOCUS)</p>
                 <div className="flex flex-row items-center justify-center gap-4 w-full">
                     <div className="flex flex-col items-center gap-2 flex-1 min-w-0">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">遺�(MIN)</span>
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">분(MIN)</span>
                         <div className="flex items-center space-x-1.5">
                             <button onClick={() => adjustFocusMin(-1)} className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-black border transition-all ${isDarkMode ? 'bg-slate-800 border-slate-700 hover:bg-slate-700' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'}`}>-</button>
                             <input type="number" value={focusMin} onChange={(e) => handleMinInput(e.target.value, setFocusMin, 120, true)} className={`text-4xl font-black w-14 text-center bg-transparent border-none focus:outline-none focus:bg-emerald-500/5 rounded-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`} />
@@ -174,7 +174,7 @@ function App() {
                     </div>
                     <div className="w-[1.5px] h-10 bg-slate-500/10 rounded-full shrink-0" />
                     <div className="flex flex-col items-center gap-2 flex-1 min-w-0">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">珥�(SEC)</span>
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">초(SEC)</span>
                         <div className="flex items-center space-x-1.5">
                             <button onClick={() => adjustFocusSec(-10)} className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-black border transition-all ${isDarkMode ? 'bg-slate-800 border-slate-700 hover:bg-slate-700' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'}`}>-</button>
                             <input type="number" value={focusSec} onChange={(e) => handleSecInput(e.target.value, setFocusSec, true)} className={`text-4xl font-black w-14 text-center bg-transparent border-none focus:outline-none focus:bg-emerald-500/5 rounded-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`} />
@@ -185,10 +185,10 @@ function App() {
              </div>
              
              <div className={`border rounded-[3rem] p-8 flex flex-col items-center justify-center shadow-xl space-y-5 ${isDarkMode ? 'bg-slate-900/60 border-slate-800' : 'bg-white border-slate-200'}`}>
-                <p className="text-xl uppercase tracking-[0.2em] font-black text-slate-500">�댁떇 �쒓컙(BREAK)</p>
+                <p className="text-xl uppercase tracking-[0.2em] font-black text-slate-500">휴식 시간(BREAK)</p>
                 <div className="flex flex-row items-center justify-center gap-4 w-full">
                     <div className="flex flex-col items-center gap-2 flex-1 min-w-0">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">遺�(MIN)</span>
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">분(MIN)</span>
                         <div className="flex items-center space-x-1.5">
                             <button onClick={() => adjustBreakMin(-1)} className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-black border transition-all ${isDarkMode ? 'bg-slate-800 border-slate-700 hover:bg-slate-700' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'}`}>-</button>
                             <input type="number" value={breakMin} onChange={(e) => handleMinInput(e.target.value, setBreakMin, 60, false)} className={`text-4xl font-black w-14 text-center bg-transparent border-none focus:outline-none focus:bg-amber-500/5 rounded-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${isDarkMode ? 'text-amber-400' : 'text-amber-600'}`} />
@@ -197,7 +197,7 @@ function App() {
                     </div>
                     <div className="w-[1.5px] h-10 bg-slate-500/10 rounded-full shrink-0" />
                     <div className="flex flex-col items-center gap-2 flex-1 min-w-0">
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">珥�(SEC)</span>
+                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">초(SEC)</span>
                         <div className="flex items-center space-x-1.5">
                             <button onClick={() => adjustBreakSec(-10)} className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg font-black border transition-all ${isDarkMode ? 'bg-slate-800 border-slate-700 hover:bg-slate-700' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'}`}>-</button>
                             <input type="number" value={breakSec} onChange={(e) => handleSecInput(e.target.value, setBreakSec, false)} className={`text-4xl font-black w-14 text-center bg-transparent border-none focus:outline-none focus:bg-amber-500/5 rounded-lg [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none ${isDarkMode ? 'text-amber-400' : 'text-amber-600'}`} />
@@ -218,7 +218,7 @@ function App() {
           </div>
 
           <div className={`w-full border rounded-[3rem] p-10 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-10 ${isDarkMode ? 'bg-slate-900/60 border-slate-800' : 'bg-white border-slate-200'}`}>
-            <div className="text-center sm:text-left"><p className="text-xl uppercase tracking-[0.2em] font-black text-slate-500 mb-1">以묎컙 �뚮┝(遺�) <span className="text-xs font-bold ml-1">BEEP</span></p><p className="text-base text-slate-400 font-medium tracking-tight">�뱀떊�� 紐곗엯�� �뺣뒗 �쇱젙�� 由щ벉</p></div>
+            <div className="text-center sm:text-left"><p className="text-xl uppercase tracking-[0.2em] font-black text-slate-500 mb-1">중간 알림(분) <span className="text-xs font-bold ml-1">BEEP</span></p><p className="text-base text-slate-400 font-medium tracking-tight">당신의 몰입을 돕는 일정한 리듬</p></div>
             <div className="flex items-center space-x-6">
                 <div className={`flex rounded-[1.5rem] p-2 border ${isDarkMode ? 'bg-slate-800 border-slate-700' : 'bg-slate-50 border-slate-200'}`}>
                     <button onClick={() => adjustInterval(-1)} className="w-12 h-12 flex items-center justify-center text-slate-400 text-2xl font-black hover:text-emerald-500 transition-colors">-</button>
@@ -243,8 +243,8 @@ function App() {
         <div className="w-full space-y-10 lg:sticky lg:top-8">
           <div className={`border rounded-[4rem] p-14 shadow-2xl space-y-12 transition-all ${isDarkMode ? 'bg-gradient-to-br from-slate-900 to-slate-900/50 border-slate-800' : 'bg-white border-slate-100'}`}>
             <div className="space-y-6">
-              <h2 className={`text-3xl font-black leading-tight underline decoration-4 underline-offset-12 ${isDarkMode ? 'text-white decoration-emerald-500/30' : 'text-slate-900 decoration-emerald-500/50'}`}>�ㅻ뒛�� 1遺꾩씠 �뱀떊�� 鍮쏅굹�� �댁씪�� 寃곗젙�⑸땲�� ��</h2>
-              <p className={`leading-relaxed font-bold text-xl ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>吏�湲� 留덉＜�� �� �쒓컙�� �⑥닚�� �レ옄媛� �꾨떃�덈떎. �뱀떊�� 轅덉쓣 �ν븳 寃ш퀬�� 踰쎈룎 �� �μ엯�덈떎. �ㅻ뒛�� �묒�留� �꾨��� 紐곗엯�쇰줈 �뱀떊留뚯쓽 �낅낫�곸씤 誘몃옒瑜� �꾩꽦�� 蹂댁꽭��.</p>
+              <h2 className={`text-3xl font-black leading-tight underline decoration-4 underline-offset-12 ${isDarkMode ? 'text-white decoration-emerald-500/30' : 'text-slate-900 decoration-emerald-500/50'}`}>오늘의 1분이 당신의 빛나는 내일을 결정합니다 ✨</h2>
+              <p className={`leading-relaxed font-bold text-xl ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>지금 마주한 이 시간은 단순한 숫자가 아닙니다. 당신의 꿈을 향한 견고한 벽돌 한 장입니다. 오늘의 작지만 위대한 몰입으로 당신만의 독보적인 미래를 완성해 보세요.</p>
             </div>
             <div className="space-y-10">
               {steps.map((step) => (
@@ -265,9 +265,9 @@ function App() {
 
             <div className="pt-6 border-t border-slate-200/10">
                 <div className={`rounded-[2.5rem] p-10 border text-center relative overflow-hidden group transition-all ${isDarkMode ? 'bg-cyan-500/5 border-cyan-500/10' : 'bg-cyan-50 border-cyan-100'}`}>
-                    <p className={`text-xl font-black mb-4 tracking-tight ${isDarkMode ? 'text-cyan-400' : 'text-cyan-700'}`}>�뮶 �� �섏씠吏�瑜� �ㅼ떆 李얘퀬 �띠쑝�좉���?</p>
+                    <p className={`text-xl font-black mb-4 tracking-tight ${isDarkMode ? 'text-cyan-400' : 'text-cyan-700'}`}>💾 이 페이지를 다시 찾고 싶으신가요?</p>
                     <p className={`text-lg font-bold mb-0 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
-                        <kbd className={`px-2 py-1 border rounded text-xs mx-1 shadow-sm ${isDarkMode ? 'bg-slate-800 border-slate-600 text-slate-200' : 'bg-white border-slate-300 text-slate-800'}`}>Ctrl</kbd> + <kbd className={`px-2 py-1 border rounded text-xs mx-1 shadow-sm ${isDarkMode ? 'bg-slate-800 border-slate-600 text-slate-200' : 'bg-white border-slate-300 text-slate-800'}`}>D</kbd> 瑜� �뚮윭 利먭꺼李얘린�� 異붽��� 二쇱꽭��! �뜋
+                        <kbd className={`px-2 py-1 border rounded text-xs mx-1 shadow-sm ${isDarkMode ? 'bg-slate-800 border-slate-600 text-slate-200' : 'bg-white border-slate-300 text-slate-800'}`}>Ctrl</kbd> + <kbd className={`px-2 py-1 border rounded text-xs mx-1 shadow-sm ${isDarkMode ? 'bg-slate-800 border-slate-600 text-slate-200' : 'bg-white border-slate-300 text-slate-800'}`}>D</kbd> 를 눌러 즐겨찾기에 추가해 주세요! 🍎
                     </p>
                 </div>
             </div>
@@ -283,6 +283,3 @@ function App() {
 }
 
 export default App
-Pressing key...Stopping...
-
-Stop Agent
